@@ -1,10 +1,5 @@
 const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
-const openLinkInNewTab = (url) => {
-  if (!url) return;
-  window.open(url, "_blank", "noopener,noreferrer");
-};
-
 const animateName = () => {
   const nameElement = document.getElementById("myname");
   if (!nameElement) return;
@@ -46,59 +41,6 @@ const animateName = () => {
   requestAnimationFrame(scramble);
 };
 
-const setupProjectPreviews = () => {
-  const projectCards = document.querySelectorAll(".project-card");
-
-  projectCards.forEach((card) => {
-    const previewWrapper = card.querySelector(".project-preview");
-    const previewButton = card.querySelector(".preview-link");
-    const previewImage = card.querySelector(".preview-image");
-
-    if (!previewWrapper || !previewButton || !previewImage) return;
-
-    const projectUrl = card.dataset.projectUrl;
-    const imageUrl = card.dataset.imageUrl;
-
-    const togglePreview = () => {
-      const isHidden = previewWrapper.classList.contains("hidden");
-      if (isHidden) {
-        previewWrapper.classList.remove("hidden");
-        if (!previewImage.dataset.loaded && imageUrl) {
-          previewImage.src = imageUrl;
-          previewImage.dataset.loaded = "true";
-        }
-      } else {
-        previewWrapper.classList.add("hidden");
-      }
-    };
-
-    card.addEventListener("click", (event) => {
-      if (event.target.closest(".preview-link")) return;
-      togglePreview();
-    });
-
-    card.addEventListener("keydown", (event) => {
-      if (event.target.closest(".preview-link")) return;
-      if (event.key !== "Enter" && event.key !== " ") return;
-      event.preventDefault();
-      togglePreview();
-    });
-
-    const openProject = (event) => {
-      event.stopPropagation();
-      openLinkInNewTab(projectUrl);
-    };
-
-    previewButton.addEventListener("click", openProject);
-    previewButton.addEventListener("keydown", (event) => {
-      if (event.key !== "Enter" && event.key !== " ") return;
-      event.preventDefault();
-      openProject(event);
-    });
-  });
-};
-
 document.addEventListener("DOMContentLoaded", () => {
   animateName();
-  setupProjectPreviews();
 });
