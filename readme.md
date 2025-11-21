@@ -29,14 +29,6 @@ It features:
 * Netlify
 * Vercel
 
-## Project Structure
-
-```
-/index.html     → Main page  
-/app.js         → Animation and interaction logic  
-/assets/        → Screenshots and preview images  
-```
-
 ## Key Features
 
 * **Scrambled Text Reveal Animation**
@@ -112,31 +104,7 @@ The site includes detailed technical overviews of published vulnerabilities, inc
 
 Additional entries will be added as new vulnerabilities are published.
 
-## Local Setup
-
-Clone the repository:
-
-```
-git clone https://github.com/YOUR-USERNAME/portfolio.git
-```
-
-Open directly in a browser:
-
-```
-index.html
-```
-
-Or serve locally:
-
-```
-npx serve
-```
-
 ## Contributions
 
 This is a personal portfolio, but suggestions and feedback are welcome through Issues or Pull Requests.
 
-## License
-
-Released under the MIT License.
-You are free to study, adapt, fork, and build upon this project.
